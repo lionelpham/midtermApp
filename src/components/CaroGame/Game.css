@@ -1,0 +1,104 @@
+body {
+    font: 14px "Century Gothic", Futura, sans-serif;
+}
+
+ol,
+ul {
+    padding-left: 30px;
+}
+.intro_computer{
+    padding:20px;
+    text-align: center;
+    font-size:30px;
+    font-weight: bold;
+}
+.turn_next{
+    padding:10px;
+    color:blue;
+    text-align: center;
+    font-size:18px;
+}
+.user_info{
+    position: absolute;
+    left:5%;
+}
+.board-row:after {
+    clear: both;
+    content: "";
+    display: table;
+}
+.shadow{
+    box-shadow: 0 1rem 3rem rgba(0,0,0,.5)!important;
+}
+
+.status {
+    margin-bottom: 10px;
+    font-size:24px;
+}
+
+.square {
+    background: #fff;
+    border: 1px solid #999;
+    float: left;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 34px;
+    height: 34px;
+    margin-right: -1px;
+    margin-top: -1px;
+    padding: 0;
+    text-align: center;
+    width: 34px;
+}
+
+.square:focus {
+    outline: none;
+}
+
+.kbd-navigation .square:focus {
+    background: #ddd;
+}
+
+.game {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 50px;
+    justify-content: center;
+}
+
+.game-info {
+    position: absolute;
+    right:0;
+    width:300px;
+
+}
+.game-info ol{
+    padding-inline-start: 0;
+    max-height:500px;
+    overflow-y:auto;
+}
+.game-info ol li{
+    margin-bottom:5px;
+}
+.game-info div{
+    margin-bottom: 5px;
+}
+.square-highlight{
+    color:red;
+}
+.group_form{
+    position: absolute;
+    right: 10px;
+
+}
+.group_form .group_sign{
+    display: flex;
+
+}
+.group_form .group_sign div{
+    color:black;
+    font-weight: bold;
+}
+.group_form .group_sign .login{
+    margin-right:10px;
+}

@@ -1,26 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {Provider} from 'react-redux'
+import {store} from './helpers'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import './App.css';
+import '../node_modules/@fortawesome/fontawesome-free/css/all.min.css';
+import "../node_modules/bootstrap-css-only/css/bootstrap.min.css";
+import "../node_modules/mdbreact/dist/css/mdb.css";
+import {loadUser} from './actions/authActions'
+import MainApp from './containers/MainApp'
+
+/*eslint-disable*/
+class App extends React.Component {
+  componentDidMount(){
+    // store.dispatch(loadUser())
+  }
+
+  render() {
+    return (
+      <Provider store={store}>
+        <MainApp/>
+      </Provider>
+    );
+  }
 }
 
 export default App;
