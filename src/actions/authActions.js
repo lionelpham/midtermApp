@@ -21,7 +21,7 @@ import {
 } from '../constants'
 
 export const loginGoogle = () => (dispatch) => {
-    axios.get('http://localhost:8080/login/google')
+    axios.get('https://api-midterm.herokuapp.com/login/google')
         .then(res => dispatch({
             type:LOGIN_GOOGLE_SUCCESS,
             payload: res.data
@@ -48,7 +48,7 @@ export const tokenConfig = getState => {
 export const loadUser = () => (dispatch, getState) => {
     dispatch({type:USER_LOADING})
     axios
-        .get('http://localhost:8080/auth/profile',tokenConfig(getState))
+        .get('https://api-midterm.herokuapp.com/auth/profile',tokenConfig(getState))
         .then(res => dispatch({
             type: USER_LOADED,
             payload: res.data
@@ -65,7 +65,7 @@ export const loadUser = () => (dispatch, getState) => {
 export const changePassword = ({newpassword}) => (dispatch,getState) => {
     const bodyReq = JSON.stringify({newpassword})
     axios
-        .post('http://localhost:8080/auth/reset-password',bodyReq,tokenConfig(getState))
+        .post('https://api-midterm.herokuapp.com/auth/reset-password',bodyReq,tokenConfig(getState))
         .then(res => dispatch({
             type: CHANGE_PASSWORD_SUCCESS,
             payload: res.data
@@ -81,7 +81,7 @@ export const changePassword = ({newpassword}) => (dispatch,getState) => {
 
 export const updateProfile = ({fullname,email,username}) => (dispatch,getState) => {
     const bodyReq  = {fullname,email,username}
-    axios.post('http://localhost:8080/auth/update-profile',bodyReq,tokenConfig(getState))
+    axios.post('https://api-midterm.herokuapp.com/auth/update-profile',bodyReq,tokenConfig(getState))
         .then(res=>dispatch({
             type:UPDATED_PROFILE,
             payload:res.data
@@ -104,7 +104,7 @@ export const uploadAvatar = (formData) => (dispatch,getState) => {
         config.headers['x-auth-token'] = token;
         
     }
-    axios.post("http://localhost:8080/auth/upload-avatar",formData,config)
+    axios.post("https://api-midterm.herokuapp.com/auth/upload-avatar",formData,config)
 
         .then(res => dispatch({
             type:UPLOAD_IMAGE_SUCCESS,
@@ -129,7 +129,7 @@ export const register = ({fullname,email,username,password}) => (dispatch,getSta
 
     const bodyReq = JSON.stringify({fullname,email,username,password})
 
-    axios.post('http://localhost:8080/register',bodyReq,config)
+    axios.post('https://api-midterm.herokuapp.com/register',bodyReq,config)
         .then(res => dispatch({
             type: REGISTER_SUCCESS,
             payload: res.data
@@ -153,7 +153,7 @@ export const login = ({username,password}) => (dispatch) => {
 
     const bodyReq = JSON.stringify({username,password})
 
-    axios.post('http://localhost:8080/login',bodyReq,config)
+    axios.post('https://api-midterm.herokuapp.com/login',bodyReq,config)
         .then(res => {
                 dispatch({
                 type: LOGIN_SUCCESS,
